@@ -23,6 +23,10 @@ public class Distrito {
     @JsonIgnoreProperties("distrito")
     private Set<Usuario> usuarios;
 
+    @OneToMany(mappedBy = "distrito", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("distrito")
+    private Set<Zona> zonas;
+
     public Integer getId() {
         return id;
     }
@@ -53,5 +57,13 @@ public class Distrito {
 
     public void setUsuarios(Set<Usuario> usuarios) {
         this.usuarios = usuarios;
+    }
+
+    public Set<Zona> getZonas() {
+        return zonas;
+    }
+
+    public void setZonas(Set<Zona> zonas) {
+        this.zonas = zonas;
     }
 }
