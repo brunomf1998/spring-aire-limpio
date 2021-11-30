@@ -1,16 +1,17 @@
-package unmsm.edu.pe.airelimpio.services;
+package unmsm.edu.pe.airelimpio.servicesImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import unmsm.edu.pe.airelimpio.models.Usuario;
 import unmsm.edu.pe.airelimpio.repositories.UsuarioRepository;
+import unmsm.edu.pe.airelimpio.services.UsuarioService;
 
 import java.util.Optional;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
-    UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     @Override
     public Usuario save(Usuario usuario) {

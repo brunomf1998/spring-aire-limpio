@@ -1,16 +1,17 @@
-package unmsm.edu.pe.airelimpio.services;
+package unmsm.edu.pe.airelimpio.servicesImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import unmsm.edu.pe.airelimpio.models.Distrito;
 import unmsm.edu.pe.airelimpio.repositories.DistritoRepository;
+import unmsm.edu.pe.airelimpio.services.DistritoService;
 
 import java.util.Optional;
 
 @Service
 public class DistritoServiceImpl implements DistritoService {
     @Autowired
-    DistritoRepository distritoRepository;
+    private DistritoRepository distritoRepository;
 
     @Override
     public Distrito save(Distrito distrito) {

@@ -16,7 +16,7 @@ import java.util.stream.StreamSupport;
 @RequestMapping(path = "api/distritos")
 public class DistritoController {
     @Autowired
-    DistritoService distritoService;
+    private DistritoService distritoService;
 
     @PostMapping(value = "crear")
     public ResponseEntity<?> crearDistrito(@RequestBody Distrito distrito) {
@@ -26,7 +26,7 @@ public class DistritoController {
     @GetMapping(value = "{id}")
     public ResponseEntity<?> obtenerDistritoPorId(@PathVariable Integer id) {
         Optional<Distrito> distrito = distritoService.findById(id);
-        if(distrito.isPresent()) return ResponseEntity.ok(distrito);
+        if(distrito.isPresent()) return ResponseEntity.ok(distrito.get());
         else return ResponseEntity.notFound().build();
     }
 
@@ -47,7 +47,7 @@ public class DistritoController {
     }
 
     @DeleteMapping(value = "{id}")
-    public ResponseEntity<?> eliminarDistritoPorId(@PathVariable Integer id) {
+    public ResponseEntity<?> eliminarDistrito(@PathVariable Integer id) {
         if(!distritoService.findById(id).isPresent()) return ResponseEntity.notFound().build();
         distritoService.deleteById(id);
         return ResponseEntity.ok().build();

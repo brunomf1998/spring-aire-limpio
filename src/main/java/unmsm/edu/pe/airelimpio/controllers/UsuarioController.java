@@ -16,7 +16,7 @@ import java.util.stream.StreamSupport;
 @RequestMapping(path = "api/usuarios")
 public class UsuarioController {
     @Autowired
-    UsuarioService usuarioService;
+    private UsuarioService usuarioService;
 
     @PostMapping(value = "crear")
     public ResponseEntity<?> crearUsuario(@RequestBody Usuario usuario) {
@@ -52,9 +52,8 @@ public class UsuarioController {
     }
 
     @DeleteMapping(value = "{id}")
-    public ResponseEntity<?> eliminarUsuarioPorId(@PathVariable Integer id) {
-        Optional<Usuario> usuarioOptional = usuarioService.findById(id);
-        if(!usuarioOptional.isPresent()) return ResponseEntity.notFound().build();
+    public ResponseEntity<?> eliminarUsuario(@PathVariable Integer id) {
+        if(!usuarioService.findById(id).isPresent()) return ResponseEntity.notFound().build();
         usuarioService.deleteById(id);
         return ResponseEntity.ok().build();
     }

@@ -22,12 +22,12 @@ public class Historial {
     @ManyToOne
     @JoinColumn(name = "his_sen_id")
     @JsonIgnoreProperties("historial")
-    private Distrito sensor;
+    private Sensor sensor;
 
     @ManyToOne
     @JoinColumn(name = "his_zon_id")
     @JsonIgnoreProperties("historial")
-    private Distrito zona;
+    private Zona zona;
 
     public Integer getId() {
         return id;
@@ -53,19 +53,19 @@ public class Historial {
         this.fechaMedida = fechaMedida;
     }
 
-    public Distrito getSensor() {
+    public Sensor getSensor() {
         return sensor;
     }
 
-    public void setSensor(Distrito sensor) {
+    public void setSensor(Sensor sensor) {
         this.sensor = sensor;
     }
 
-    public Distrito getZona() {
+    public Zona getZona() {
         return zona;
     }
 
-    public void setZona(Distrito zona) {
+    public void setZona(Zona zona) {
         this.zona = zona;
     }
 }
