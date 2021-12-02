@@ -1,6 +1,9 @@
 package unmsm.edu.pe.airelimpio.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,94 +15,39 @@ public class Zona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "zon_id")
+    @Getter @Setter
     private Integer id;
 
     @Column(name = "zon_coord_x")
+    @Getter @Setter
     private Double coordX;
 
     @Column(name = "zon_coord_y")
+    @Getter @Setter
     private Double coordY;
 
     @Column(name = "zon_medida")
+    @Getter @Setter
     private Float medida;
 
     @Column(name = "zon_fecha_medida")
+    @Getter @Setter
     private Date fechaMedida;
+
+    @OneToOne
+    @JoinColumn(name = "zon_sen_id")
+    @JsonIgnoreProperties("modelo")
+    @Getter @Setter
+    private Sensor sensor;
 
     @ManyToOne
     @JoinColumn(name = "zon_dis_id")
-    @JsonIgnoreProperties("zonas")
+    @JsonIgnoreProperties({"nombre", "codigo", "usuarios", "zonas"})
+    @Getter @Setter
     private Distrito distrito;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "zon_sen_id", referencedColumnName = "sen_id")
-    private Sensor sensor;
-
-    @OneToMany(mappedBy = "zona", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("zona")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "zona")
+    @JsonIgnore
+    @Getter @Setter
     private Set<Historial> historial;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Double getCoordX() {
-        return coordX;
-    }
-
-    public void setCoordX(Double coordX) {
-        this.coordX = coordX;
-    }
-
-    public Double getCoordY() {
-        return coordY;
-    }
-
-    public void setCoordY(Double coordY) {
-        this.coordY = coordY;
-    }
-
-    public Float getMedida() {
-        return medida;
-    }
-
-    public void setMedida(Float medida) {
-        this.medida = medida;
-    }
-
-    public Date getFechaMedida() {
-        return fechaMedida;
-    }
-
-    public void setFechaMedida(Date fechaMedida) {
-        this.fechaMedida = fechaMedida;
-    }
-
-    public Distrito getDistrito() {
-        return distrito;
-    }
-
-    public void setDistrito(Distrito distrito) {
-        this.distrito = distrito;
-    }
-
-    public Sensor getSensor() {
-        return sensor;
-    }
-
-    public void setSensor(Sensor sensor) {
-        this.sensor = sensor;
-    }
-
-    public Set<Historial> getHistorial() {
-        return historial;
-    }
-
-    public void setHistorial(Set<Historial> historial) {
-        this.historial = historial;
-    }
 }
