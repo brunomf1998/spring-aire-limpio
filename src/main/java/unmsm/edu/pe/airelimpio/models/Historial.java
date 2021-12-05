@@ -24,13 +24,7 @@ public class Historial {
     @Getter @Setter
     private Date fechaMedida;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "his_sen_id")
-    @JsonIgnoreProperties("historial")
-    @Getter @Setter
-    private Sensor sensor;
-
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "his_zon_id")
     @JsonIgnoreProperties("historial")
     @Getter @Setter

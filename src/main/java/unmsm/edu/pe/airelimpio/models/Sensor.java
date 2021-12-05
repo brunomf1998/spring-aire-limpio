@@ -26,8 +26,4 @@ public class Sensor {
     @Getter @Setter
     private Zona zona;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "sensor")
-    @JsonIgnore
-    @Getter @Setter
-    private Set<Historial> historial;
 }

@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -22,17 +21,10 @@ public class Zona {
     @Getter @Setter
     private Double coordX;
 
+
     @Column(name = "zon_coord_y")
     @Getter @Setter
     private Double coordY;
-
-    @Column(name = "zon_medida")
-    @Getter @Setter
-    private Float medida;
-
-    @Column(name = "zon_fecha_medida")
-    @Getter @Setter
-    private Date fechaMedida;
 
     @OneToOne
     @JoinColumn(name = "zon_sen_id")
@@ -42,7 +34,7 @@ public class Zona {
 
     @ManyToOne
     @JoinColumn(name = "zon_dis_id")
-    @JsonIgnoreProperties({"nombre", "codigo", "usuarios", "zonas"})
+    @JsonIgnoreProperties({"nombre", "usuarios", "zonas"})
     @Getter @Setter
     private Distrito distrito;
 

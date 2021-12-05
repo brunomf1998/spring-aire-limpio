@@ -19,13 +19,9 @@ public class Usuario {
     @Getter @Setter
     private String nombres;
 
-    @Column(name = "usu_apellido_paterno")
+    @Column(name = "usu_apellidos")
     @Getter @Setter
-    private String apellidoPaterno;
-
-    @Column(name = "usu_apellido_materno")
-    @Getter @Setter
-    private String apellidoMaterno;
+    private String apellidos;
 
     @Column(name = "usu_email")
     @Getter @Setter
@@ -35,9 +31,9 @@ public class Usuario {
     @Getter @Setter
     private String password;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "usu_dis_id")
-    @JsonIgnoreProperties({"nombre", "codigo", "usuarios"})
+    @JsonIgnoreProperties({"nombre", "usuarios"})
     @Getter @Setter
     private Distrito distrito;
 }

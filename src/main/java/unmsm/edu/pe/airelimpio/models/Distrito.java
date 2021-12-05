@@ -20,10 +20,6 @@ public class Distrito {
     @Getter @Setter
     private String nombre;
 
-    @Column(name = "dis_codigo")
-    @Getter @Setter
-    private String codigo;
-
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "distrito")
     @JsonIgnore
     @Getter @Setter

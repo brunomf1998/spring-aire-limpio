@@ -43,8 +43,6 @@ public class ZonaController {
 
         if(zona.getCoordX() != null) zonaOptional.get().setCoordX(zona.getCoordX());
         if(zona.getCoordY() != null) zonaOptional.get().setCoordY(zona.getCoordY());
-        if(zona.getMedida() != null) zonaOptional.get().setMedida(zona.getMedida());
-        if(zona.getFechaMedida() != null) zonaOptional.get().setFechaMedida(zona.getFechaMedida());
         if(zona.getSensor() != null) zonaOptional.get().setSensor(zona.getSensor());
         if(zona.getDistrito() != null) zonaOptional.get().setDistrito(zona.getDistrito());
 

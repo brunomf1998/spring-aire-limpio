@@ -42,7 +42,6 @@ public class DistritoController {
         if(!distritoOptional.isPresent()) return ResponseEntity.notFound().build();
 
         if(distrito.getNombre() != null) distritoOptional.get().setNombre(distrito.getNombre());
-        if(distrito.getCodigo() != null) distritoOptional.get().setCodigo(distrito.getCodigo());
         return ResponseEntity.status(HttpStatus.CREATED).body(distritoService.save(distritoOptional.get()));
     }
 

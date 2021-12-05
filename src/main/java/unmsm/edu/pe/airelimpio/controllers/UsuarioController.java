@@ -42,8 +42,7 @@ public class UsuarioController {
         if(!usuarioOptional.isPresent()) return ResponseEntity.notFound().build();
 
         if(usuario.getNombres() != null) usuarioOptional.get().setNombres(usuario.getNombres());
-        if(usuario.getApellidoMaterno() != null) usuarioOptional.get().setApellidoMaterno(usuario.getApellidoMaterno());
-        if(usuario.getApellidoPaterno() != null) usuarioOptional.get().setApellidoPaterno(usuario.getApellidoPaterno());
+        if(usuario.getApellidos() != null) usuarioOptional.get().setApellidos(usuario.getApellidos());
         if(usuario.getEmail() != null) usuarioOptional.get().setEmail(usuario.getEmail());
         if(usuario.getPassword() != null) usuarioOptional.get().setPassword(usuario.getPassword());
         if(usuario.getDistrito() != null) usuarioOptional.get().setDistrito(usuario.getDistrito());
