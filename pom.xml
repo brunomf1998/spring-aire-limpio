@@ -12,7 +12,7 @@
 	<artifactId>aire-limpio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>Aire Limpio API</name>
+	<name>Aire Limpio Backend</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -22,7 +22,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -47,6 +46,16 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.22</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>de.mkammerer</groupId>
+			<artifactId>argon2-jvm</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
 		</dependency>
 	</dependencies>
 

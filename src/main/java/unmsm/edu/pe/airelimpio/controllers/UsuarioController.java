@@ -1,5 +1,7 @@
 package unmsm.edu.pe.airelimpio.controllers;
 
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +19,6 @@ import java.util.stream.StreamSupport;
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
-
-    @PostMapping(value = "crear")
-    public ResponseEntity<?> crearUsuario(@RequestBody Usuario usuario) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
-    }
 
     @GetMapping(value = "{id}")
     public ResponseEntity<?> obtenerUsuarioPorId(@PathVariable Integer id) {

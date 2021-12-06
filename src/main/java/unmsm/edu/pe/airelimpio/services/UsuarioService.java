@@ -9,4 +9,6 @@ public interface UsuarioService {
     Optional<Usuario> findById(Integer id);
     Iterable<Usuario> findAll();
     void deleteById(Integer id);
+
+    Usuario getUserByCredentials(String email, String password);
 }

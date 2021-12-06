@@ -6,5 +6,5 @@ import unmsm.edu.pe.airelimpio.models.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
-
+    Usuario findByEmail(String email);
 }
